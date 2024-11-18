@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "guacamole.fullname" . }}
+  labels:
+    {{- include "guacamole.labels" . | nindent 4 }}
+data:
+  guacamole.properties: |
+    # Seems to be ignored:
+    # guacd-host: {{ include "guacamole.fullname" . }}-guacd
+
+    enable-environment-properties: true
+
+    {{- with .Values.guacamole.properties }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}

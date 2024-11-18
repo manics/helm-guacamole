@@ -28,8 +28,7 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          {{- range .paths }}
-          - path: {{ .path }}
+          - path: /guacamole
             {{- with .pathType }}
             pathType: {{ . }}
             {{- end }}
@@ -38,6 +37,5 @@ spec:
                 name: {{ include "guacamole.fullname" $ }}
                 port:
                   number: {{ $.Values.service.port }}
-          {{- end }}
     {{- end }}
 {{- end }}
