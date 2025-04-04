@@ -44,9 +44,15 @@ spec:
               value: {{ include "guacamole.fullname" . }}-guacd
             - name: LOGBACK_LEVEL
               value: debug
+            {{- with .Values.guacamole.env }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           envFrom:
             - secretRef:
                 name: {{ include "guacamole.fullname" . }}-env
+            {{- with .Values.guacamole.envFrom }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 8080

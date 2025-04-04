@@ -16,6 +16,10 @@ guacamole:
   affinity: {}
   # guacamole.properties
   properties: {}
+  # Kubernetes env
+  env: []
+  # Kubernetes envFrom
+  envFrom: []
   # Dict of secret environment variables
   secretEnv: {}
   # https://guacamole.apache.org/doc/gug/json-auth.html#configuring-guacamole-to-accept-encrypted-json
