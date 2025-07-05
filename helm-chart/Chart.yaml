@@ -5,4 +5,4 @@ type: application
 # Don't change version, it's automatically set by a GitHub workflow
 # when the repository is tagged
 version: 0.0.0
-appVersion: "1.5.5"
+appVersion: "1.6.0"
