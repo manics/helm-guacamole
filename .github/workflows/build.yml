@@ -36,6 +36,16 @@ jobs:
         run: |
           helm package helm-chart
 
+      - uses: jupyterhub/action-k3s-helm@v4
+        with:
+          k3s-channel: v1.31
+
+      - name: Install chart
+        run: helm install guac ./helm-chart --wait
+
+      - name: Test chart
+        run: helm test guac
+
       - name: Checkout gh-pages
         uses: actions/checkout@v4
         with:
