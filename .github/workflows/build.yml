@@ -13,13 +13,13 @@ jobs:
   helmchart:
     permissions:
       contents: write
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install kubeconform
-        run: curl -sfL https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz | tar -C /usr/local/bin -xzf - kubeconform
+        run: curl -sfL https://github.com/yannh/kubeconform/releases/download/v0.7.0/kubeconform-linux-amd64.tar.gz | tar -C /usr/local/bin -xzf - kubeconform
 
       - name: Lint
         run: |
